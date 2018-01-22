@@ -5,12 +5,19 @@
  */
 package com.milagro.salesappservices.dao;
 
+import com.milagro.salesappservices.model.Project;
+import java.util.List;
+
 /**
  *
  * @author harpreet
  */
 public interface ILeadDao {
     
-    public Object leadstatus();
+    public Object leadstatus(Integer projectId);
+    
+    public List<Project> getProjectList();
+    
+    public Object getLeadsList(String tokenId, Integer projectId);
     
 }

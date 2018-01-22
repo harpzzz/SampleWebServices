@@ -5,12 +5,21 @@
  */
 package com.milagro.salesappservices.service;
 
+import com.milagro.salesappservices.model.Project;
+import java.util.List;
+
 /**
  *
  * @author harpreet
  */
 public interface ILeads {
     
-    public Object getLeadsCount();
+    public Object getLeadsCount(String tokenId, Integer projectId);
+    
+    
+    public Object getProjectList(String tokenId);
+    
+    
+    public Object getLeadList(String tokenId, Integer projectId);
     
 }

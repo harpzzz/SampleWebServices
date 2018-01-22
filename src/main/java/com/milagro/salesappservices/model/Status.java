@@ -33,6 +33,7 @@ public class Status {
     
         @OneToMany(mappedBy="status")
 	private Set<Lead> lead;
+        
 
     public int getLeadStatus_id() {
         return LeadStatus_id    ;

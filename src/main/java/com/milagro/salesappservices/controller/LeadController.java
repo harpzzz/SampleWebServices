@@ -9,6 +9,7 @@ import com.milagro.salesappservices.service.LeadService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,11 +25,31 @@ public class LeadController {
     LeadService leadService;
     
     
-    @RequestMapping(value = "/counts", method = RequestMethod.GET)
-    public Object getcountsLeads(){
+    @RequestMapping(value = "/counts", method = RequestMethod.POST)
+    public String getcountsLeads(@RequestParam("token_id") String tokenId, @RequestParam("project_id") Integer projectId){
+    
+        
+        return leadService.getLeadsCount(tokenId,projectId).toString();
+        
+    }
     
     
-        return leadService.getLeadsCount();
+    
+    @RequestMapping(value = "/projectlist", method = RequestMethod.POST)
+    public String getProjectList(@RequestParam("token_id") String tokenId){
+    
+        
+        
+    
+        return leadService.getProjectList(tokenId).toString();
+    
+    }
+    
+    
+    @RequestMapping(value = "/leadslist",method = RequestMethod.POST)
+    public String getLeadList(@RequestParam("token_id") String tokenId, @RequestParam("project_id") Integer projectId){
+    
+        return leadService.getLeadList(tokenId, projectId).toString();
         
     }
     

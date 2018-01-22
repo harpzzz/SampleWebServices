@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,7 +33,16 @@ public class Lead {
     String lead_Phone;
     
     Integer lead_Country_Id;
-
+    
+    
+          
+    Integer lead_AssignId;
+    
+    @ManyToOne
+    @JoinColumn(name = "lead_Project_Id")        
+    Project project;
+    
+    
     @ManyToOne
     @JoinColumn(name = "lead_Status_Id")            
     Status status;
@@ -108,7 +118,7 @@ public class Lead {
         this.status = status;
     }
 
-    
-    
+   
+   
 }
 
